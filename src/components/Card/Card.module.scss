@@ -28,17 +28,29 @@
             transform-origin: 50% 50%;
             animation: img 0.5s linear alternate infinite;
             margin-left: 10px;
+            width: 40px;
+            height: 40px;
         }
-
-        & span {
-            color: $white;
-            padding: 0 10px;
+        & > div {
             display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100%;
-            font-size: 14px;
-            font-weight: 600;
+            flex-direction: column;
+            justify-content: center;
+            & span:first-child {
+                color: $white;
+                padding: 0 10px;
+                display: flex;
+                justify-content: flex-start;
+                font-size: 14px;
+                font-weight: 600;
+            }
+            & span:nth-child(2) {
+                color: $white;
+                padding: 0 10px;
+                display: flex;
+                justify-content: flex-start;
+                font-size: 12px;
+                font-weight: 600;
+            }
         }
     }
     .messages {

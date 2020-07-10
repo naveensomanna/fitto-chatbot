@@ -36,9 +36,11 @@ const App = () => {
         let selectedBotResponse;
         setBotLoading(true);
         if (userInput && userInput[0].toLowerCase() === "goals") {
-          setBotLoading(false);
           selectedBotResponse = botSteps[4];
-          setMessages([...messages, selectedBotResponse]);
+          setTimeout(() => {
+            setBotLoading(false);
+            setMessages([...messages, selectedBotResponse]);
+          }, 1000);
         }
         if (
           userInput &&
@@ -86,19 +88,20 @@ const App = () => {
             setMessages([...messages, selectedBotResponse]);
           }, 1000);
         }
-        if (
-          !botSteps.find(
-            (step) => step.id !== userInput && userInput[0].toLowerCase()
-          )
-        ) {
-          setBotLoading(true);
-          setTimeout(() => {
-            setBotLoading(false);
-            selectedBotResponse = botSteps[5];
-            setMessages([...messages, selectedBotResponse]);
-            setTypeQuestion("height");
-          }, 1000);
-        }
+
+        // if (
+        //   !botSteps.find(
+        //     (step) => step.id !== userInput && userInput[0].toLowerCase()
+        //   )
+        // ) {
+        //   setBotLoading(true);
+        //   setTimeout(() => {
+        //     setBotLoading(false);
+        //     selectedBotResponse = botSteps[5];
+        //     setMessages([...messages, selectedBotResponse]);
+        //     setTypeQuestion("height");
+        //   }, 1000);
+        // }
       }
     }
   }, [messages]);

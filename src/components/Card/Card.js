@@ -9,7 +9,10 @@ const Card = ({ messages, handleSendMessage, botLoading }) => {
     <section className={styles.cardContainer}>
       <header>
         <img src={botIcon} alt="bot icon" />
-        <span>Virtual assistant</span>
+        <div>
+          <span>Fitto</span>
+          <span>Virtual assistant</span>
+        </div>
       </header>
       <section className={styles.messages}>
         <Messages messages={messages} botLoading={botLoading} />

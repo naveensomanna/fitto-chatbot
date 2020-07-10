@@ -21,7 +21,7 @@ export const botSteps = [
     botIcon: botIcon
   },
   {
-    id: "Thanks",
+    id: "bmi",
     type: "bot",
     message: "<div class='message__value'>Thanks check out your BMI</div>",
     botIcon: botIcon
