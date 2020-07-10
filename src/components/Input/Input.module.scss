@@ -1,0 +1,45 @@
+@import "../../colors";
+
+.inputContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & input {
+        height: 40px;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 40px;
+        margin: 0 0.5rem 0 0;
+        background-color: $bg-color;
+        box-shadow: inset 0 0 0 2px #dedfed;
+        font-size: 14px;
+        font-family: "Quicksand", sans-serif;
+        font-weight: bold;
+        transition: 0.15s all ease-in-out;
+        flex: 0 1 70%;
+        &:focus,
+        :active {
+            box-shadow: inset 0 0 0 2px #7690d6;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    & > div {
+        flex: 0 1 10%;
+        height: 40px;
+        margin-left: 20px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 30px;
+        color: $white;
+        background-color: $blue;
+        text-align: center;
+        box-shadow: $button-box-shadow;
+        transition: 0.15s all ease-in-out;
+        &:hover {
+            background-color: #3c559c;
+        }
+    }
+}
