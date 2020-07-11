@@ -27,12 +27,19 @@ export const botSteps = [
     botIcon: botIcon
   },
   {
-    id: "Goals",
+    id: "abs",
     type: "bot",
     message:
       "<div class='gif__container'><img src='https://media.giphy.com/media/13beCEg2qPMmIg/giphy.gif'/></div>",
     botIcon: botIcon
   },
+  {
+    id: "trainer",
+    type: "bot",
+    message: `<iframe width="200" height="200" src="https://www.youtube.com/embed/zyvjscQVFv8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+    botIcon: botIcon
+  },
+
   {
     id: "Invalid Number",
     type: "bot",
@@ -41,3 +48,5 @@ export const botSteps = [
     botIcon: botIcon
   }
 ];
+
+export const tollTip = `Hi! I'm here to help you to give your BMI result.`;

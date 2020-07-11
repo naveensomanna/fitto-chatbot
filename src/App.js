@@ -35,12 +35,19 @@ const App = () => {
       if (messages[messages.length - 1].type === "user") {
         let selectedBotResponse;
         setBotLoading(true);
-        if (userInput && userInput[0].toLowerCase() === "goals") {
+        if (userInput && userInput[0].toLowerCase() === "abs") {
           selectedBotResponse = botSteps[4];
           setTimeout(() => {
             setBotLoading(false);
             setMessages([...messages, selectedBotResponse]);
           }, 1000);
+        }
+        if (userInput && userInput[0].toLowerCase() === "trainer") {
+          selectedBotResponse = botSteps[5];
+          setTimeout(() => {
+            setBotLoading(false);
+            setMessages([...messages, selectedBotResponse]);
+          }, 2000);
         }
         if (
           userInput &&
@@ -76,7 +83,7 @@ const App = () => {
           setTypeQuestion("done");
         } else if (!typeQuestion === "height") {
           setBotLoading(false);
-          selectedBotResponse = botSteps[5];
+          selectedBotResponse = botSteps[6];
           setMessages([...messages, selectedBotResponse]);
           setTypeQuestion("weight");
         }
