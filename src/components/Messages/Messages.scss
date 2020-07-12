@@ -16,12 +16,6 @@
     padding: 1rem 0 0 0;
 }
 
-.message__wrapper {
-    .gif__container {
-        width: 50%;
-    }
-}
-
 .item__left {
     display: flex;
     margin-right: 10px;
@@ -32,9 +26,11 @@
     & > div {
         // flex: 0 1 50%;
         .gif__container {
-            width: 200px;
-            height: 200px;
+            width: 60%;
+            height: 180px;
             margin: 2px 0 0 1rem;
+            border: 1px solid $bg-color;
+            border-radius: 4px;
             box-shadow: 0px 15px 33px -34px rgba(0, 0, 0, 0.8);
             & img {
                 max-width: 100%;
@@ -51,6 +47,7 @@
             min-height: 200px;
             margin: 2px 0 0 1rem;
             border-radius: 4px;
+            border: 1px solid $bg-color;
             box-shadow: 0px 15px 33px -34px rgba(0, 0, 0, 0.8);
             & img {
                 max-width: 100%;
@@ -68,13 +65,17 @@
                 overflow: hidden;
                 white-space: nowrap;
                 display: inline-block;
+                margin-left: 5px;
             }
+        }
+        .video__container {
+            margin: 2px 0 0 1rem;
         }
         .message__value {
             @include message();
             max-width: 100%;
             margin: 2px 0 0 0.5rem;
-            color: #000000;
+            color: $text-color;
             background-color: rgba(100, 241, 210, 0.5);
             text-align: initial;
         }
@@ -102,9 +103,9 @@
     width: 10px;
     height: 10px;
     border-radius: 5px;
-    background-color: #9880ff;
-    color: #9880ff;
-    box-shadow: 9999px 0 0 -5px #9880ff;
+    background-color: $dot_pulse;
+    color: $dot_pulse;
+    box-shadow: 9999px 0 0 -5px $dot_pulse;
     animation: dotPulse 1.5s infinite linear;
     animation-delay: 0.25s;
     display: flex;
@@ -120,57 +121,57 @@
     width: 10px;
     height: 10px;
     border-radius: 5px;
-    background-color: #9880ff;
-    color: #9880ff;
+    background-color: $dot_pulse;
+    color: $dot_pulse;
 }
 
 .dot__pulse::before {
-    box-shadow: 9984px 0 0 -5px #9880ff;
+    box-shadow: 9984px 0 0 -5px $dot_pulse;
     animation: dotPulseBefore 1.5s infinite linear;
     animation-delay: 0s;
 }
 
 .dot__pulse::after {
-    box-shadow: 10014px 0 0 -5px #9880ff;
+    box-shadow: 10014px 0 0 -5px $dot_pulse;
     animation: dotPulseAfter 1.5s infinite linear;
     animation-delay: 0.5s;
 }
 
 @keyframes dotPulseBefore {
     0% {
-        box-shadow: 9984px 0 0 -5px #9880ff;
+        box-shadow: 9984px 0 0 -5px $dot_pulse;
     }
     30% {
-        box-shadow: 9984px 0 0 2px #9880ff;
+        box-shadow: 9984px 0 0 2px $dot_pulse;
     }
     60%,
     100% {
-        box-shadow: 9984px 0 0 -5px #9880ff;
+        box-shadow: 9984px 0 0 -5px $dot_pulse;
     }
 }
 
 @keyframes dotPulse {
     0% {
-        box-shadow: 9999px 0 0 -5px #9880ff;
+        box-shadow: 9999px 0 0 -5px $dot_pulse;
     }
     30% {
-        box-shadow: 9999px 0 0 2px #9880ff;
+        box-shadow: 9999px 0 0 2px $dot_pulse;
     }
     60%,
     100% {
-        box-shadow: 9999px 0 0 -5px #9880ff;
+        box-shadow: 9999px 0 0 -5px $dot_pulse;
     }
 }
 
 @keyframes dotPulseAfter {
     0% {
-        box-shadow: 10014px 0 0 -5px #9880ff;
+        box-shadow: 10014px 0 0 -5px $dot_pulse;
     }
     30% {
-        box-shadow: 10014px 0 0 2px #9880ff;
+        box-shadow: 10014px 0 0 2px $dot_pulse;
     }
     60%,
     100% {
-        box-shadow: 10014px 0 0 -5px #9880ff;
+        box-shadow: 10014px 0 0 -5px $dot_pulse;
     }
 }

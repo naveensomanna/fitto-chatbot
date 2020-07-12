@@ -1,6 +1,6 @@
 import React from "react";
-import "./Messages.scss";
 import BotHead from "../BotHead/BotHead";
+import "./Messages.scss";
 
 const MessageItem = (props) => {
   let messageSender = props.botIcon ? "item__left" : "item__right";

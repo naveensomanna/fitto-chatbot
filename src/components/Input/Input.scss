@@ -1,6 +1,6 @@
 @import "../../colors";
 
-.inputContainer {
+.input__container {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -38,8 +38,5 @@
         text-align: center;
         box-shadow: $button-box-shadow;
         transition: 0.15s all ease-in-out;
-        &:hover {
-            background-color: #3c559c;
-        }
     }
 }

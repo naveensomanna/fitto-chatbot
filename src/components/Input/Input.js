@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Input.module.scss";
+import "./Input.scss";
 
 const Input = ({ handleSendMessage }) => {
   const [value, setValue] = useState("");
@@ -10,7 +10,7 @@ const Input = ({ handleSendMessage }) => {
   };
 
   const handleSubmit = () => {
-    handleSendMessage(value);
+    handleSendMessage(value); //callback function
     setValue("");
   };
 
@@ -21,7 +21,7 @@ const Input = ({ handleSendMessage }) => {
   };
 
   return (
-    <div className={styles.inputContainer}>
+    <div className="input__container">
       <input
         type="text"
         placeholder="Write something"
@@ -29,7 +29,7 @@ const Input = ({ handleSendMessage }) => {
         onChange={handleChange}
         onKeyPress={handleKeyPress}
       />
-      <div className={styles.sendButton} onClick={handleSubmit}>
+      <div className="send__button" onClick={handleSubmit}>
         <i className="material-icons">send</i>
       </div>
     </div>

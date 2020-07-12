@@ -37,7 +37,7 @@ export const botSteps = [
   {
     id: "trainer",
     type: "bot",
-    message: `<iframe width="200" height="200" src="https://www.youtube.com/embed/zyvjscQVFv8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+    message: `<div class="video__container"><iframe width="200" height="200" style="border-radius:4px" src="https://www.youtube.com/embed/zyvjscQVFv8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`,
     botIcon: true
   },
   {
@@ -47,10 +47,10 @@ export const botSteps = [
     botIcon: true
   },
   {
-    id: "Invalid Number",
+    id: "Invalid",
     type: "bot",
     message:
-      "<div class='message__value'>Hey, I was not able to understand what you asked for. Please contact our team naveensomanna26@gmail.com?</div>",
+      "<div class='message__value'>Hey, I was not able to understand what you asked for. Please contact our team naveensomanna26@gmail.com.</div>",
     botIcon: true
   }
 ];

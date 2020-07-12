@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Card from "./components/Card/Card";
-import botIcon from "./images/icons8-bot-64.png";
+import Bot from "./components/Bot/Bot";
 import { botSteps, tollTip } from "./constants";
 import { bmiCalculation } from "./utils";
 import "./App.scss";
-import Bot from "./components/Bot/Bot";
 
 const App = () => {
   const [messages, setMessages] = useState([]);
@@ -16,6 +15,7 @@ const App = () => {
   const [typeQuestion, setTypeQuestion] = useState("height");
 
   const handleSendMessage = (message) => {
+    //not accepting empty message
     if (message.trim()) {
       setUserInput(message);
       let newMessageItem = {
@@ -63,7 +63,7 @@ const App = () => {
           let newBMIItem = {
             type: "bot",
             id: "BMI",
-            botIcon: botIcon,
+            botIcon: true,
             message: `<div class='message__value'>${result}</div>`
           };
           setTimeout(() => {
@@ -72,45 +72,44 @@ const App = () => {
           }, 1000);
 
           setTypeQuestion("done");
+        } else if (userInput.toLowerCase() === "hi") {
+          setTimeout(() => {
+            setBotLoading(false);
+            selectedBotResponse = botSteps[1];
+            setMessages([...messages, selectedBotResponse]);
+          }, 1000);
+        } else if (userInput.toLowerCase() === "abs") {
+          selectedBotResponse = botSteps[4];
+          setTimeout(() => {
+            setBotLoading(false);
+            setMessages([...messages, selectedBotResponse]);
+          }, 1000);
+        } else if (
+          userInput.toLowerCase() === "trainer" ||
+          userInput.toLowerCase() === "video"
+        ) {
+          selectedBotResponse = botSteps[5];
+          setTimeout(() => {
+            setBotLoading(false);
+            setMessages([...messages, selectedBotResponse]);
+          }, 2000);
+        } else if (
+          userInput.toLowerCase() === "what is bmi" ||
+          userInput.toLowerCase() === "bmi"
+        ) {
+          selectedBotResponse = botSteps[6];
+          setTimeout(() => {
+            setBotLoading(false);
+            setMessages([...messages, selectedBotResponse]);
+          }, 2000);
         } else {
-          switch (userInput.toLowerCase()) {
-            case "hi":
-              setTimeout(() => {
-                setBotLoading(false);
-                selectedBotResponse = botSteps[1];
-                setMessages([...messages, selectedBotResponse]);
-              }, 1000);
-              break;
-            case "abs":
-              selectedBotResponse = botSteps[4];
-              setTimeout(() => {
-                setBotLoading(false);
-                setMessages([...messages, selectedBotResponse]);
-              }, 1000);
-              break;
-            case "trainer":
-              selectedBotResponse = botSteps[5];
-              setTimeout(() => {
-                setBotLoading(false);
-                setMessages([...messages, selectedBotResponse]);
-              }, 2000);
-              break;
-            case "what is bmi":
-              selectedBotResponse = botSteps[6];
-              setTimeout(() => {
-                setBotLoading(false);
-                setMessages([...messages, selectedBotResponse]);
-              }, 2000);
-              break;
-            default:
-              setBotLoading(true);
-              setTimeout(() => {
-                setBotLoading(false);
-                selectedBotResponse = botSteps[7];
-                setMessages([...messages, selectedBotResponse]);
-                setTypeQuestion("height");
-              }, 1000);
-          }
+          setBotLoading(true);
+          setTimeout(() => {
+            setBotLoading(false);
+            selectedBotResponse = botSteps[7];
+            setMessages([...messages, selectedBotResponse]);
+            setTypeQuestion("height");
+          }, 1000);
         }
       }
     }

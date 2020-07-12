@@ -8,7 +8,7 @@
     box-shadow: $box-shadow;
     position: relative;
     header {
-        background-color: #0c0d0e;
+        background-color: $header-bg;
         border-top-left-radius: 22px;
         border-top-right-radius: 22px;
         height: 60px;
