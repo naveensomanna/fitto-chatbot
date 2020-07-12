@@ -37,7 +37,7 @@ export const botSteps = [
   {
     id: "trainer",
     type: "bot",
-    message: `<div class="video__container"><iframe width="200" height="200" style="border-radius:4px" src="https://www.youtube.com/embed/zyvjscQVFv8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`,
+    message: `<div class="video__container"><iframe src="https://www.youtube.com/embed/zyvjscQVFv8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`,
     botIcon: true
   },
   {

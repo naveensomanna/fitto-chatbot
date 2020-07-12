@@ -67,3 +67,14 @@
         align-items: center;
     }
 }
+
+@media (max-width: 600px) {
+    .card__container {
+        width: 90%;
+    }
+}
+@media only screen and (min-width: 601px) and (max-width: 1100px) {
+    .card__container {
+        width: 40%;
+    }
+}
