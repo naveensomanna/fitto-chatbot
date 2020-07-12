@@ -44,7 +44,7 @@ export const botSteps = [
     id: "Invalid Number",
     type: "bot",
     message:
-      "<div class='message__value'>Hey, the value you entered seems to be invalid. Can you please try again?</div>",
+      "<div class='message__value'>Hey, I was not able to understand what you asked for. Please contact our team naveensomanna26@gmail.com?</div>",
     botIcon: botIcon
   }
 ];

@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Card from "./components/Card/Card";
 import botIcon from "./images/icons8-bot-64.png";
-import { botSteps } from "./constants";
+import { botSteps, tollTip } from "./constants";
 import { bmiCalculation } from "./utils";
-import "./App.css";
+import "./App.scss";
+import Bot from "./components/Bot/Bot";
 
 const App = () => {
   const [messages, setMessages] = useState([]);
-  const [userInput, setUserInput] = useState([]);
+  const [userInput, setUserInput] = useState();
   const [height, setHeight] = useState(0);
   const [botLoading, setBotLoading] = useState(false);
+  const [showMessageContainer, setMessageContainer] = useState(false);
 
   const [typeQuestion, setTypeQuestion] = useState("height");
-  useEffect(() => {
-    setTimeout(() => {
-      setMessages([...messages, botSteps[0]]);
-    }, 300);
-  }, []);
 
   const handleSendMessage = (message) => {
     if (message.trim()) {
-      setUserInput([message]);
+      setUserInput(message);
       let newMessageItem = {
         type: "user",
         id: message,
@@ -30,28 +27,31 @@ const App = () => {
     }
   };
 
+  //handle click bot
+
+  const handleClickBot = () => {
+    setMessageContainer(true);
+    setBotLoading(true);
+    setTimeout(() => {
+      setBotLoading(false);
+      setMessages([...messages, botSteps[0]]);
+    }, 800);
+  };
+
+  const handleCloseBot = () => {
+    setMessageContainer(false);
+    setMessages([]);
+  };
+
   useEffect(() => {
     if (messages.length > 0) {
       if (messages[messages.length - 1].type === "user") {
         let selectedBotResponse;
         setBotLoading(true);
-        if (userInput && userInput[0].toLowerCase() === "abs") {
-          selectedBotResponse = botSteps[4];
-          setTimeout(() => {
-            setBotLoading(false);
-            setMessages([...messages, selectedBotResponse]);
-          }, 1000);
-        }
-        if (userInput && userInput[0].toLowerCase() === "trainer") {
-          selectedBotResponse = botSteps[5];
-          setTimeout(() => {
-            setBotLoading(false);
-            setMessages([...messages, selectedBotResponse]);
-          }, 2000);
-        }
+
         if (
           userInput &&
-          parseInt(userInput[0]) > 100 &&
+          parseInt(userInput) > 100 &&
           typeQuestion === "height"
         ) {
           setTimeout(() => {
@@ -61,10 +61,9 @@ const App = () => {
             setHeight(parseInt(userInput[0]));
             setTypeQuestion("weight");
           }, 1000);
-        }
-        if (
+        } else if (
           userInput &&
-          parseInt(userInput[0]) < 100 &&
+          parseInt(userInput) < 100 &&
           typeQuestion === "weight"
         ) {
           selectedBotResponse = botSteps[3];
@@ -81,44 +80,67 @@ const App = () => {
           }, 1000);
 
           setTypeQuestion("done");
-        } else if (!typeQuestion === "height") {
-          setBotLoading(false);
-          selectedBotResponse = botSteps[6];
-          setMessages([...messages, selectedBotResponse]);
-          setTypeQuestion("weight");
+        } else {
+          switch (userInput.toLowerCase()) {
+            case "hi":
+              setTimeout(() => {
+                setBotLoading(false);
+                selectedBotResponse = botSteps[1];
+                setMessages([...messages, selectedBotResponse]);
+              }, 1000);
+              break;
+            case "abs":
+              selectedBotResponse = botSteps[4];
+              setTimeout(() => {
+                setBotLoading(false);
+                setMessages([...messages, selectedBotResponse]);
+              }, 1000);
+              break;
+            case "trainer":
+              selectedBotResponse = botSteps[5];
+              setTimeout(() => {
+                setBotLoading(false);
+                setMessages([...messages, selectedBotResponse]);
+              }, 2000);
+              break;
+            default:
+              setBotLoading(true);
+              setTimeout(() => {
+                setBotLoading(false);
+                selectedBotResponse = botSteps[6];
+                setMessages([...messages, selectedBotResponse]);
+                setTypeQuestion("height");
+              }, 1000);
+          }
         }
-
-        if (userInput && userInput[0].toLowerCase() === "hi") {
-          setTimeout(() => {
-            setBotLoading(false);
-            selectedBotResponse = botSteps[1];
-            setMessages([...messages, selectedBotResponse]);
-          }, 1000);
-        }
-
-        // if (
-        //   !botSteps.find(
-        //     (step) => step.id !== userInput && userInput[0].toLowerCase()
-        //   )
-        // ) {
-        //   setBotLoading(true);
-        //   setTimeout(() => {
-        //     setBotLoading(false);
-        //     selectedBotResponse = botSteps[5];
-        //     setMessages([...messages, selectedBotResponse]);
-        //     setTypeQuestion("height");
-        //   }, 1000);
-        // }
       }
     }
   }, [messages]);
   return (
-    <div className="App">
-      <Card
-        messages={messages}
-        handleSendMessage={handleSendMessage}
-        botLoading={botLoading}
-      />
+    <div className="app_container">
+      {showMessageContainer && (
+        <Card
+          messages={messages}
+          handleSendMessage={handleSendMessage}
+          botLoading={botLoading}
+        />
+      )}
+      <div className="app_bot_conatiner">
+        {!showMessageContainer && (
+          <div onClick={handleClickBot}>
+            <Bot />
+            <span className="toll_tip">
+              <span className="bot_name">Fitto 👋</span>
+              {tollTip}
+            </span>
+          </div>
+        )}
+        {showMessageContainer && (
+          <span class="material-icons close__wrapper" onClick={handleCloseBot}>
+            highlight_off
+          </span>
+        )}
+      </div>
     </div>
   );
 };

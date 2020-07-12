@@ -4,11 +4,11 @@
     max-width: 50%;
     min-height: 40px;
     padding: 0.75rem;
-    border-radius: 4px;
+    border-radius: 20px;
     font-size: 14px;
     line-height: 18px;
     font-weight: bold;
-    box-shadow: 0px 10px 10px -8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 25px 33px -24px rgba(0, 0, 0, 0.8);
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -25,14 +25,16 @@
 
 .item__left {
     display: flex;
+    margin-right: 10px;
     & .bot__icon {
         width: 40px;
         height: 40px;
         margin-left: 10px;
+        box-shadow: 0px 25px 33px -16px rgba(0, 0, 0, 0.8);
     }
 
     & > div {
-        flex: 0 1 50%;
+        // flex: 0 1 50%;
         .gif__container {
             width: 200px;
             height: 200px;
@@ -48,6 +50,7 @@
             margin: 2px 0 0 0.5rem;
             color: $white;
             background-color: $blue;
+            text-align: initial;
         }
     }
 }
@@ -60,7 +63,9 @@
             @include message();
             margin: 0 10px 0 0;
             max-width: 100%;
-            background-color: #fafafa;
+            background-color: #ececec;
+            text-align: right;
+            box-shadow: 0px 25px 33px -16px rgba(0, 0, 0, 0.8);
         }
     }
 }
