@@ -4,6 +4,7 @@ import Input from "../Input/Input";
 import botIcon from "../../images/icons8-bot-64.png";
 import { tollTip } from "../../constants";
 import "./Card.scss";
+import BotHead from "../BotHead/BotHead";
 
 const Card = ({ messages, handleSendMessage, botLoading }) => {
   const messagesEndRef = useRef(null);
@@ -18,7 +19,8 @@ const Card = ({ messages, handleSendMessage, botLoading }) => {
     <section className="card__container">
       <header>
         <div className="bot_icon">
-          <img src={botIcon} alt="bot icon" />
+          {/* <img src={botIcon} alt="bot icon" /> */}
+          <BotHead />
         </div>
         <div>
           <span>Fitto</span>

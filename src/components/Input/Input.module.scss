@@ -20,7 +20,7 @@
         flex: 0 1 70%;
         &:focus,
         :active {
-            box-shadow: inset 0 0 0 2px #7690d6;
+            box-shadow: inset 0 0 0 2px #0c0d0e;
         }
         &:focus {
             outline: none;
@@ -34,7 +34,7 @@
         padding: 8px;
         border-radius: 30px;
         color: $white;
-        background-color: $blue;
+        background-color: #0c0d0e;
         text-align: center;
         box-shadow: $button-box-shadow;
         transition: 0.15s all ease-in-out;

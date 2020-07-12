@@ -20,7 +20,7 @@ const App = () => {
       setUserInput(message);
       let newMessageItem = {
         type: "user",
-        id: message,
+        height: message,
         message: `<div class='message__value'>${message}</div>`
       };
       setMessages([...messages, newMessageItem]);
@@ -41,6 +41,7 @@ const App = () => {
   const handleCloseBot = () => {
     setMessageContainer(false);
     setMessages([]);
+    setTypeQuestion("height");
   };
 
   useEffect(() => {
@@ -48,12 +49,7 @@ const App = () => {
       if (messages[messages.length - 1].type === "user") {
         let selectedBotResponse;
         setBotLoading(true);
-
-        if (
-          userInput &&
-          parseInt(userInput) > 100 &&
-          typeQuestion === "height"
-        ) {
+        if (!isNaN(userInput) && typeQuestion === "height") {
           setTimeout(() => {
             setBotLoading(false);
             selectedBotResponse = botSteps[2];
@@ -61,11 +57,7 @@ const App = () => {
             setHeight(parseInt(userInput[0]));
             setTypeQuestion("weight");
           }, 1000);
-        } else if (
-          userInput &&
-          parseInt(userInput) < 100 &&
-          typeQuestion === "weight"
-        ) {
+        } else if (!isNaN(userInput) && typeQuestion === "weight") {
           selectedBotResponse = botSteps[3];
           const result = bmiCalculation(parseInt(userInput[0]), height);
           let newBMIItem = {

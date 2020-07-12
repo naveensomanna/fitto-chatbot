@@ -1,7 +1,7 @@
 @import "../../colors";
 
 .card__container {
-    width: 22%;
+    width: 25%;
     height: 600px;
     background-color: $card-bg;
     border-radius: 22px;
@@ -15,6 +15,7 @@
         overflow: hidden;
         display: flex;
         .bot_icon {
+            margin: 10px 8px;
             @keyframes img {
                 0% {
                     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -26,14 +27,12 @@
                     transform: translate3d(0, 100%, 0) scale3d(1.5, 0.7, 1);
                 }
             }
-            img {
-                transform-origin: 50% 50%;
-                animation: img 0.5s linear alternate infinite;
-                margin-left: 10px;
-                width: 40px;
-                height: 40px;
-                cursor: pointer;
-            }
+            transform-origin: 50% 50%;
+            animation: img 0.5s linear alternate infinite;
+            margin-left: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
         }
         & > div {
             display: flex;

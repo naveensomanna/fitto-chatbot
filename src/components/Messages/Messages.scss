@@ -17,7 +17,6 @@
 }
 
 .message__wrapper {
-    // @include message();
     .gif__container {
         width: 50%;
     }
@@ -26,11 +25,8 @@
 .item__left {
     display: flex;
     margin-right: 10px;
-    & .bot__icon {
-        width: 40px;
-        height: 40px;
+    .bot__icon {
         margin-left: 10px;
-        box-shadow: 0px 25px 33px -16px rgba(0, 0, 0, 0.8);
     }
 
     & > div {
@@ -48,8 +44,8 @@
             @include message();
             max-width: 100%;
             margin: 2px 0 0 0.5rem;
-            color: $white;
-            background-color: $blue;
+            color: #000000;
+            background-color: rgba(100, 241, 210, 0.5);
             text-align: initial;
         }
     }

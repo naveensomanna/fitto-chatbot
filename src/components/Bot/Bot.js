@@ -1,4 +1,6 @@
 import React from "react";
+import botIcon from "../../images/icons8-bot-64.png";
+
 import "./Bot.scss";
 const Bot = () => {
   return (

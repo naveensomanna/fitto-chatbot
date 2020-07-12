@@ -5,8 +5,8 @@ export const botSteps = [
     id: "Greet",
     type: "bot",
     message:
-      "<div class='message__value'>Welcome to Fitto</div><div class='message__value'>Please type your height (cm)</div>",
-    botIcon: botIcon
+      "<div class='message__value'>Welcome to Fitto</div><div class='message__value'>Please type your height (inches)</div>",
+    botIcon: true
   },
   {
     id: "Hi",
@@ -17,7 +17,8 @@ export const botSteps = [
   {
     id: "height",
     type: "bot",
-    message: "<div class='message__value'>Please type your weight (kg)</div>",
+    message:
+      "<div class='message__value'>Please type your weight (pounds)</div>",
     botIcon: botIcon
   },
   {
