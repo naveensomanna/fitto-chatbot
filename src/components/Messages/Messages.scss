@@ -35,9 +35,39 @@
             width: 200px;
             height: 200px;
             margin: 2px 0 0 1rem;
+            box-shadow: 0px 15px 33px -34px rgba(0, 0, 0, 0.8);
             & img {
                 max-width: 100%;
-                border: 0.5px solid $bg-color;
+                border-bottom: 1px solid $bg-color;
+            }
+            & p {
+                margin: 3px 15px;
+                text-align: initial;
+                font-size: 14px;
+            }
+        }
+        .card__bmi {
+            width: 200px;
+            min-height: 200px;
+            margin: 2px 0 0 1rem;
+            border-radius: 4px;
+            box-shadow: 0px 15px 33px -34px rgba(0, 0, 0, 0.8);
+            & img {
+                max-width: 100%;
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+                border-bottom: 1px solid $bg-color;
+            }
+            & p {
+                margin: 8px 5px;
+                font-size: 14px;
+            }
+            & a {
+                text-overflow: ellipsis;
+                width: 180px;
+                overflow: hidden;
+                white-space: nowrap;
+                display: inline-block;
             }
         }
         .message__value {
@@ -54,7 +84,6 @@
     display: flex;
     justify-content: flex-end;
     & > div {
-        flex: 0 1 20%;
         .message__value {
             @include message();
             margin: 0 10px 0 0;

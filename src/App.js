@@ -95,11 +95,18 @@ const App = () => {
                 setMessages([...messages, selectedBotResponse]);
               }, 2000);
               break;
+            case "what is bmi":
+              selectedBotResponse = botSteps[6];
+              setTimeout(() => {
+                setBotLoading(false);
+                setMessages([...messages, selectedBotResponse]);
+              }, 2000);
+              break;
             default:
               setBotLoading(true);
               setTimeout(() => {
                 setBotLoading(false);
-                selectedBotResponse = botSteps[6];
+                selectedBotResponse = botSteps[7];
                 setMessages([...messages, selectedBotResponse]);
                 setTypeQuestion("height");
               }, 1000);

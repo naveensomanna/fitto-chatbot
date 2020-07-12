@@ -1,4 +1,4 @@
-import botIcon from "./images/icons8-bot-64.png";
+import bmiChart from "./images/bmi-chartm.jpg";
 
 export const botSteps = [
   {
@@ -12,41 +12,46 @@ export const botSteps = [
     id: "Hi",
     type: "bot",
     message: "<div class='message__value'>Hello!</div>",
-    botIcon: botIcon
+    botIcon: true
   },
   {
     id: "height",
     type: "bot",
     message:
       "<div class='message__value'>Please type your weight (pounds)</div>",
-    botIcon: botIcon
+    botIcon: true
   },
   {
     id: "bmi",
     type: "bot",
     message: "<div class='message__value'>Thanks check out your BMI</div>",
-    botIcon: botIcon
+    botIcon: true
   },
   {
     id: "abs",
     type: "bot",
     message:
-      "<div class='gif__container'><img src='https://media.giphy.com/media/13beCEg2qPMmIg/giphy.gif'/></div>",
-    botIcon: botIcon
+      "<div class='gif__container'><img src='https://media.giphy.com/media/13beCEg2qPMmIg/giphy.gif'/><p>Abs workout for beginners</p></div>",
+    botIcon: true
   },
   {
     id: "trainer",
     type: "bot",
     message: `<iframe width="200" height="200" src="https://www.youtube.com/embed/zyvjscQVFv8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-    botIcon: botIcon
+    botIcon: true
   },
-
+  {
+    id: "what is bmi",
+    type: "bot",
+    message: `<div class='card__bmi'><img src=${bmiChart} alt='bmi image'/><p>Body mass index (BMI) is a value derived from the mass (weight) and height of a person.</p> <a href='https://en.wikipedia.org/wiki/Body_mass_index' target='_blank'>https://en.wikipedia.org/wiki/Body_mass_index</a></div>`,
+    botIcon: true
+  },
   {
     id: "Invalid Number",
     type: "bot",
     message:
       "<div class='message__value'>Hey, I was not able to understand what you asked for. Please contact our team naveensomanna26@gmail.com?</div>",
-    botIcon: botIcon
+    botIcon: true
   }
 ];
 
