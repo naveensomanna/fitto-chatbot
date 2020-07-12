@@ -93,10 +93,7 @@ const App = () => {
             setBotLoading(false);
             setMessages([...messages, selectedBotResponse]);
           }, 2000);
-        } else if (
-          userInput.toLowerCase() === "what is bmi" ||
-          userInput.toLowerCase() === "bmi"
-        ) {
+        } else if (userInput.toLowerCase().includes("bmi")) {
           selectedBotResponse = botSteps[6];
           setTimeout(() => {
             setBotLoading(false);
